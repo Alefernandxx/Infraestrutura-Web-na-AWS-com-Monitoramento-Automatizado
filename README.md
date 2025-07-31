@@ -18,11 +18,11 @@ Rota 0.0.0.0/0 apontando para o Internet Gateway.
 1.2 Sub-redes:
 Foram criadas quatro sub-redes, com a seguinte separação:
 
- Tipo	      Nome	        CIDR Block	  
-Pública	subnet-public-a	  10.0.1.0/24	                   
-Pública	subnet-public-b	  10.0.2.0/24	                     
-Privada	subnet-private-a	10.0.3.0/24	                    
-Privada	subnet-private-b	10.0.4.0/24	     	                
+ Tipo	         Nome	            CIDR Block	  
+Pública  	subnet-public-a	     10.0.1.0/24	                   
+Pública	  subnet-public-b	     10.0.2.0/24	                     
+Privada	  subnet-private-a	    10.0.3.0/24	                    
+Privada	  subnet-private-b	    10.0.4.0/24	     	                
 
 Grupo de Segurança (Security Group)
 Criado um Security Group com as seguintes regras:
@@ -46,20 +46,26 @@ Par de chaves: vpc-public-key.pem
 
 Comando no terminal:
 
+```bash
 ssh -i ~/.ssh/vpc-public-key.pem ec2-user@<IP-PÚBLICO>
+```
 Substitua <IP-PÚBLICO> pelo IP da sua instância.
 
 Etapa 3: Preparação da Instância
 
 3.1 Atualização
 
+```bash
 sudo dnf update -y
+```
 
 3.2 Instalação de Nginx
 
+```bash
 sudo dnf install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
+```
 
 3.3 Instalação do Cron
 
@@ -74,9 +80,9 @@ Etapa 4: Script de Monitoramento
 ```bash
 #!/bin/bash
 
-URL="http://3.12.73.116"  
-LOGFILE="/home/ale123/projeto.log"
-WEBHOOK_URL="https://discord.com/api/webhooks/1397222745275629658/ZzvqCYSu2Wva4oquM73jPpup3LKiiS3HGziMbEi9XdNByDoMeV4ThnOj1GCOTJltr37I"
+URL="http://<URL>"  
+LOGFILE="/home/<USUARIO>/projeto.log"
+WEBHOOK_URL="https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
 
 DATA=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -94,21 +100,33 @@ fi
 ```
 
 Permissões:
-chmod +x /home/ale123/projeto.sh
+```bash
+chmod +x /home/<USUARIO>/projeto.sh
+```
 
 Editar o cron:
+```bash
 crontab -e
+```
 
 Linha adicionada:
+```bash
 * * * * * /bin/bash /home/<USUARIO>/projeto.sh >> /home/<USUARIO>/projeto-cron.log 2>&1
+```
 
 Etapa 6: Teste
 
 Simular site fora do ar:
+```bash
 sudo systemctl stop nginx
+```
 
 Verificar logs:
-tail -n 10 /home/ale123/projeto.log
+```bash
+tail -n 10 /home/<USUARIO>/projeto.log
+```
 
 Subir o site novamente:
+```bash
 sudo systemctl start nginx
+```
