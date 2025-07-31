@@ -1,8 +1,8 @@
 #!/bin/bash
 
-URL="http://3.12.73.116"  
-LOGFILE="/home/ale123/projeto.log"
-WEBHOOK_URL="https://discord.com/api/webhooks/1397222745275629658/ZzvqCYSu2Wva4oquM73jPpup3LKiiS3HGziMbEi9XdNByDoMeV4ThnOj1GCOTJltr37I"
+URL="http://<URL>"  
+LOGFILE="/home/<USUARIO>/projeto.log"
+WEBHOOK_URL="https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
 
 DATA=$(date '+%Y-%m-%d %H:%M:%S')
 
