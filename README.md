@@ -20,7 +20,7 @@ Foram criadas quatro sub-redes, com a seguinte separação:
 
 ```bash
  Tipo	     Nome	            CIDR Block	  
-Pública  	subnet-public-a	     10.0.1.0/24	                   
+Pública subnet-public-a	     10.0.1.0/24	                   
 Pública	  subnet-public-b	     10.0.2.0/24	                     
 Privada	  subnet-private-a	    10.0.3.0/24	                    
 Privada	  subnet-private-b	    10.0.4.0/24
