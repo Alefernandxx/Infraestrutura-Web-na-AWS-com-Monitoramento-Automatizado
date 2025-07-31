@@ -63,9 +63,11 @@ sudo systemctl start nginx
 
 3.3 Instalação do Cron
 
+```bash
 sudo dnf install cronie -y
 sudo systemctl enable crond
 sudo systemctl start crond
+```
 
 Etapa 4: Script de Monitoramento 
 
