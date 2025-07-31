@@ -56,23 +56,23 @@ Etapa 3: Preparação da Instância
 3.1 Atualização
 
 ```bash
-sudo dnf update -y
+sudo dnf update -y # Atualiza todos os pacotes do sistema.
 ```
 
 3.2 Instalação de Nginx
 
 ```bash
-sudo dnf install nginx -y
-sudo systemctl enable nginx
-sudo systemctl start nginx
+sudo dnf install nginx -y # Instala o servidor web Nginx.
+sudo systemctl enable nginx # Faz com que o Nginx inicie automaticamente com o sistema.
+sudo systemctl start nginx #Inicia o serviço Nginx.
 ```
 
 3.3 Instalação do Cron
 
 ```bash
-sudo dnf install cronie -y
-sudo systemctl enable crond
-sudo systemctl start crond
+sudo dnf install cronie -y #Instala o serviço de agendamento de tarefas
+sudo systemctl enable crond #Ativa/inicia o daemon
+sudo systemctl start crond #Executa as tarefas programadas 
 ```
 
 Etapa 4: Script de Monitoramento 
@@ -106,7 +106,7 @@ chmod +x /home/<USUARIO>/projeto.sh
 
 Editar o cron:
 ```bash
-crontab -e
+crontab -e # Abre o editor para editar tarefas agendadas do usuário.
 ```
 
 Linha adicionada:
@@ -118,7 +118,7 @@ Etapa 6: Teste
 
 Simular site fora do ar:
 ```bash
-sudo systemctl stop nginx
+sudo systemctl stop nginx # Para o servidor Nginx, simulando o site "fora do ar".
 ```
 
 Verificar logs:
